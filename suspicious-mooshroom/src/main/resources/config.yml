@@ -1,0 +1,180 @@
+allow_convert: true # If true players can give mushroom soup to cow with weakness to turn it into mooshroom
+
+#Customize ocurrence random event ingame (1 is 100%, 0 is 0%)
+chance:
+  brown: 0.2 #Chance a naturally spawned mooshroom spawns as brown instead of red 
+  mutation: 0.05 #Chance that when two effects combine in mixed breeding (red w/ brown) a random effect appears 
+  downgrade: 1 # Chance that an effect randomly degrades: min(0, max(1, (thisvalue)*(n/10 - 0.2*m))), where n is total points of effects and m is [1, 4]. See wiki.
+
+#Stablish limits to allow making more/less powerful stews
+limits:
+  total: 10 #Total effect points allowed in total
+  intensity: 4 #Cap for intensity level (i.e. potion effect level ). A value of 4 will limit effects to level IV
+  duration: 10 #Cap for duraiton level (i.e. multiplier for base duration effect). A value of 10 limits duration to 10 times base duration
+  milkCooldown: 600 #Mushroom stew milk cooldown, in ticks, which is multiplied by effect points. A cow with 4 effect points can only be milked every 2400 ticks
+  
+language:
+  baby: "Baby mooshrooms cannot produce stews"
+  incorrect_flower: "It doesn't seem like she liked that..."
+  not_fed: "There is no stew... She probably needs to eat more"
+  too_much: "She doesn't seem to want this anymore"
+  cooldown: "There is no stew... It's too soon since I last milked her"
+  
+  effect_potion_lore: "Right click a mooshroom to change it's flower type"
+  fungi_powder_name: "Fungi Cultivation Powder"
+  fungi_powder_lore: "Spread on a mooshroom to grow an identical version of it"
+  cannibal_fungi_name: "Cannibal Fungi"
+  cannibal_fungi_lore: "Infect a mooshroom to make its effects loose power"
+  
+effects:
+  saturation:
+    feedingItem: dandelion
+    potionType: saturation
+    baseDuration: 2
+    weight: 1
+    treasure: false
+    lang_potion: "Dandelion Fungous Solution"
+  
+  night_vision:
+    feedingItem: poppy
+    potionType: night_vision
+    baseDuration: 1800
+    weight: 1
+    treasure: false
+    lang_potion: "Poppy Fungous Solution"    
+    
+  resistance:
+    feedingItem: blue_orchid
+    potionType: resistance
+    baseDuration: 600
+    weight: 0.75
+    treasure: false
+    lang_potion: "Orchid Fungous Solution"  
+  
+  blindness:
+    feedingItem: azure_bluet
+    potionType: blindness
+    baseDuration: 200
+    weight: 0.5
+    treasure: false
+    lang_potion: "Azure Fungous Solution"  
+  
+  weakness:
+    feedingItem: red_tulip
+    potionType: weakness
+    baseDuration: 900
+    weight: 1
+    treasure: false
+    lang_potion: "Red Tulip Fungous Solution"  
+  
+  haste:
+    feedingItem: orange_tulip
+    potionType: haste
+    baseDuration: 900
+    weight: 0.75
+    treasure: false
+    lang_potion: "Orange Tulip Fungous Solution"  
+  
+  speed:
+    feedingItem: white_tulip
+    potionType: speed
+    baseDuration: 1800
+    weight: 1
+    treasure: false
+    lang_potion: "White Tulip Fungous Solution"  
+  
+  strength:
+    feedingItem: pink_tulip
+    potionType: strength
+    baseDuration: 1800
+    weight: 1
+    treasure: false
+    lang_potion: "Pink Tulip Fungous Solution"  
+  
+  regeneration:
+    feedingItem: oxeye_daisy
+    potionType: regeneration
+    baseDuration: 450
+    weight: 0.75
+    treasure: false
+    lang_potion: "Daisy Fungous Solution"  
+  
+  jump_boost:
+    feedingItem: cornflower
+    potionType: jump_boost
+    baseDuration: 1800
+    weight: 1
+    treasure: false
+    lang_potion: "Cornflower Fungous Solution"  
+  
+  poison:
+    feedingItem: lily_of_the_valley
+    potionType: poison
+    baseDuration: 450
+    weight: 0.75
+    treasure: false
+    lang_potion: "Fungous Solution of the Valley"  
+  
+  wither:
+    feedingItem: wither_rose
+    potionType: wither
+    baseDuration: 300
+    weight: 0.4
+    treasure: false
+    lang_potion: "Necrotic Fungous Solution"  
+  
+  mining_fatigue:
+    feedingItem: sweet_berries
+    potionType: mining_fatigue
+    baseDuration: 450
+    weight: 1
+    treasure: true
+    lang_potion: "Sweet Fungous Solution"  
+  
+  nausea:
+    feedingItem: pufferfish
+    potionType: nausea
+    baseDuration: 450
+    weight: 0.5
+    treasure: true
+    lang_potion: "Disgusting Fungous Solution"  
+  
+  hunger:
+    feedingItem: rotten_flesh
+    potionType: hunger
+    baseDuration: 450
+    weight: 1
+    treasure: true
+    lang_potion: "Rotten Fungous Solution"  
+  
+  health_boost:
+    feedingItem: golden_apple
+    potionType: health_boost
+    baseDuration: 1200
+    weight: 0.1
+    treasure: true
+    lang_potion: "Golden Fungous Solution"  
+  
+  absorption:
+    feedingItem: apple 
+    potionType: absorption
+    baseDuration: 1200
+    weight: 0.2
+    treasure: true
+    lang_potion: "Red Delicious Fungous Solution"  
+  
+  levitation:
+    feedingItem: chorus_fruit
+    potionType: levitation
+    baseDuration: 40
+    weight: 0.1
+    treasure: true
+    lang_potion: "Floating Fungous Solution"  
+  
+  dolphins_grace:
+    feedingItem: sea_pickle
+    potionType: dolphins_grace
+    baseDuration: 1200
+    weight: 0.2
+    treasure: true  
+    lang_potion: "Pickled Fungous Solution"  

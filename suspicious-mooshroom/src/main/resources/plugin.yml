@@ -1,0 +1,10 @@
+name: ${name}
+version: ${version}
+main: com.gmail.ljuangbminecraft.suspiciousmooshroom.SuspiciousMooshroom
+description: ${description}
+api-version: 1.13
+commands:
+  mooshroomitem:
+    description: Get a custom item from ${name}.
+    usage: "Usage: /mooshroomitem [itemid]"
+    aliases: [mooitem]
