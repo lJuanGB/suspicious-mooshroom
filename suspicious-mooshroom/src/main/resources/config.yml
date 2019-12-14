@@ -1,4 +1,5 @@
 allow_convert: true # If true players can give mushroom soup to cow with weakness to turn it into mooshroom
+free_rename: true # If true renaming suspicious stews is free so that players can keep track of the effects
 
 #Customize ocurrence random event ingame (1 is 100%, 0 is 0%)
 chance:

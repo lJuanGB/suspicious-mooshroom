@@ -29,7 +29,8 @@ public class Config {
 	private static List<Entry<?>> entries = new ArrayList<>();
 
 	public static Entry<Boolean> allow_convert = new Entry<>("allow_convert", Type.BOOLEAN, true);
-	
+	public static Entry<Boolean> free_rename = new Entry<>("free_rename", Type.BOOLEAN, true);
+
 	public static Entry<Double> chance_brown = new Entry<>("chance.brown", Type.DOUBLE, 1d/5);
 	public static Entry<Double> chance_mutation = new Entry<>("chance.mutation", Type.DOUBLE, 1d/20);
 	public static Entry<Double> chance_downgrade = new Entry<>("chance.downgrade", Type.DOUBLE, 1d);

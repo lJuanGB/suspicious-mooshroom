@@ -10,6 +10,7 @@ import org.bukkit.inventory.AnvilInventory;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
+import com.gmail.ljuangbminecraft.suspiciousmooshroom.Config;
 import com.gmail.ljuangbminecraft.suspiciousmooshroom.UtilMethods;
 
 public class AnvilRenameListener implements Listener{
@@ -17,6 +18,11 @@ public class AnvilRenameListener implements Listener{
 	@EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
 	public void anvilRecipeListener(InventoryClickEvent e)
 	{
+		if (!Config.free_rename.get())
+		{
+			return;
+		}
+		
 		Inventory inv = e.getInventory();
 		
 		if (!(inv instanceof AnvilInventory) || e.getRawSlot() != 2)
