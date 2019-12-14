@@ -7,6 +7,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import com.gmail.ljuangbminecraft.suspiciousmooshroom.commands.MooshroomConfigCommand;
 import com.gmail.ljuangbminecraft.suspiciousmooshroom.commands.MooshroomItemCommand;
+import com.gmail.ljuangbminecraft.suspiciousmooshroom.listeners.AnvilRenameListener;
 import com.gmail.ljuangbminecraft.suspiciousmooshroom.listeners.CowBreedingListener;
 import com.gmail.ljuangbminecraft.suspiciousmooshroom.listeners.CowInteractListener;
 import com.gmail.ljuangbminecraft.suspiciousmooshroom.listeners.CowSpawnListener;
@@ -34,6 +35,7 @@ public class SuspiciousMooshroom extends JavaPlugin{
 		Bukkit.getPluginManager().registerEvents(new CowInteractListener(), this);
 		Bukkit.getPluginManager().registerEvents(new CowSpawnListener(), this);
 		Bukkit.getPluginManager().registerEvents(new StewConsumeListener(), this);
+		Bukkit.getPluginManager().registerEvents(new AnvilRenameListener(), this);
 
 		getCommand("mooshroomitem").setExecutor(new MooshroomItemCommand());
 		getCommand("mooshroomconfig").setExecutor(new MooshroomConfigCommand());
