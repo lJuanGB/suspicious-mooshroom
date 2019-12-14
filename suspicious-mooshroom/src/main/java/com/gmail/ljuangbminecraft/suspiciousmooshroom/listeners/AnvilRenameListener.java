@@ -9,6 +9,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.AnvilInventory;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.PlayerInventory;
 
 import com.gmail.ljuangbminecraft.suspiciousmooshroom.Config;
 import com.gmail.ljuangbminecraft.suspiciousmooshroom.UtilMethods;
@@ -43,7 +44,28 @@ public class AnvilRenameListener implements Listener{
 		
 		if (ent instanceof Player)
 		{
-			((Player) ent).giveExpLevels(1);
+			((Player) ent).giveExp(0); // Updates xp meter to show correct levels
 		}
+		
+		e.setCancelled(true);
+		
+		if (e.getClick().isShiftClick())
+		{
+			PlayerInventory pinv = ent.getInventory();
+			
+			if (pinv.firstEmpty() >= 0)
+			{
+				pinv.addItem(item);
+				inv.setItem(0, null);
+				inv.setItem(2, null);
+			}
+		}
+		else
+		{
+			e.getView().setCursor(item);
+			inv.setItem(0, null);
+			inv.setItem(2, null);
+		}		
+
 	}
 }
