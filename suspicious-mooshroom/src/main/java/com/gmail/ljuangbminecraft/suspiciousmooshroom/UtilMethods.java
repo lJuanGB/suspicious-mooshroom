@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Random;
 
 import org.apache.commons.lang.Validate;
 import org.apache.commons.lang.WordUtils;
@@ -83,7 +84,7 @@ public class UtilMethods {
 		ent.getPersistentDataContainer().set(keyCool, PersistentDataType.LONG, time);
 	}
 	
-	public static <T> T drawRandom(Map<T, ? extends Number> possibilities)
+	public static <T> T drawRandom(Map<T, ? extends Number> possibilities, Long seed)
 	{
 		Validate.notNull(possibilities);
 		
@@ -103,13 +104,15 @@ public class UtilMethods {
 			return null;
 		}
 		
-		double random = Math.random() * total;
+		seed = seed == null ? System.currentTimeMillis() : seed;
+		Random random = new Random(seed);
+		double rand = random.nextDouble() * total;
 		
 		for (T val : possibilities.keySet())
 		{
-			random -= Math.max(0, possibilities.get(val).doubleValue());
+			rand -= Math.max(0, possibilities.get(val).doubleValue());
 			
-			if (random < 0)
+			if (rand < 0)
 			{
 				return val;
 			}
@@ -118,7 +121,7 @@ public class UtilMethods {
 		return null;
 	}
 	
-	public static FlowerEffectType getRandomEffect(boolean treasure)
+	public static FlowerEffectType getRandomEffect(boolean treasure, Long seed)
 	{
 		Map<FlowerEffectType, Double> chances = new HashMap<>();
 		
@@ -132,7 +135,7 @@ public class UtilMethods {
 			chances.put(type, type.getWeight());
 		}
 		
-		return UtilMethods.drawRandom(chances);
+		return UtilMethods.drawRandom(chances, seed);
 	}
 
 	public static Optional<PotionEffectType> getPotionEffectType(String s)

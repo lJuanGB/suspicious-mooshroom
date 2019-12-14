@@ -100,7 +100,8 @@ public class CowSpawnListener implements Listener{
 	
 	public static void addRandomEffect(Entity cow)
 	{
-		FlowerEffect effect = new FlowerEffect( UtilMethods.getRandomEffect(false), 1, 1);
+		long seed = cow.getUniqueId().getLeastSignificantBits();
+		FlowerEffect effect = new FlowerEffect( UtilMethods.getRandomEffect(false, seed), 1, 1);
 		MooshroomData data = new MooshroomData(effect);
 		data.setFeedLevel(effect.getType(), 1);
 		UtilMethods.setMooshroomData(cow, data);

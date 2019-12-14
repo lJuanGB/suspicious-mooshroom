@@ -144,7 +144,7 @@ public class CowBreedingListener implements Listener{
 		
 		if (Math.random() < Config.chance_mutation.get()) //If random chance of mutation
 		{
-			return new FlowerEffect(UtilMethods.getRandomEffect(true), 1, 1);
+			return new FlowerEffect(UtilMethods.getRandomEffect(true, null), 1, 1);
 		}
 		
 		// else return effect with highest level
