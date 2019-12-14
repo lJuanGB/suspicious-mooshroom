@@ -8,3 +8,7 @@ commands:
     description: Get a custom item from ${name}.
     usage: "Usage: /mooshroomitem [itemid]"
     aliases: [mooitem]
+  mooshroomconfig:
+    description: Reloads ${name}'s config without having to restart the server.
+    usage: "Usage: /mooshroomconfig"
+    aliases: [mooconfig, mooreload]

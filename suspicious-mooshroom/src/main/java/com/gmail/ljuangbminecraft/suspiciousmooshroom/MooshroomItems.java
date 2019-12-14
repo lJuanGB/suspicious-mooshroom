@@ -21,7 +21,7 @@ import org.bukkit.inventory.meta.PotionMeta;
  */
 public class MooshroomItems {
 
-	private static Map<String, ItemStack> items = new HashMap<>();
+	private static Map<String, ItemStack> items;
 	
 	public static Optional<ItemStack> get(String id)
 	{
@@ -50,6 +50,7 @@ public class MooshroomItems {
 	 */
 	public static void registerItems()
 	{
+		items = new HashMap<>();
 		registerSimpleItem("fungi_powder", Material.SUGAR, Config.lang_fungi_powder_name.get(), Config.lang_fungi_powder_lore.get());
 		registerSimpleItem("cannibal_fungi", Material.FERMENTED_SPIDER_EYE, Config.lang_cannibal_fungi_name.get(), Config.lang_cannibal_fungi_lore.get());
 	
@@ -87,7 +88,7 @@ public class MooshroomItems {
 	 * 
 	 * @param type
 	 */
-	public static void registerEffectPotion(FlowerEffectType type)
+	private static void registerEffectPotion(FlowerEffectType type)
 	{
 		Validate.notNull(type);
 		
