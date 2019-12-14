@@ -1,10 +1,13 @@
 package com.gmail.ljuangbminecraft.suspiciousmooshroom.listeners;
 
+import org.bukkit.entity.HumanEntity;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
-import org.bukkit.event.inventory.PrepareAnvilEvent;
+import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.AnvilInventory;
+import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 import com.gmail.ljuangbminecraft.suspiciousmooshroom.UtilMethods;
@@ -12,10 +15,16 @@ import com.gmail.ljuangbminecraft.suspiciousmooshroom.UtilMethods;
 public class AnvilRenameListener implements Listener{
 
 	@EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
-	public void prepareAnvilListener(PrepareAnvilEvent e)
+	public void anvilRecipeListener(InventoryClickEvent e)
 	{
-		AnvilInventory inv = e.getInventory();
-		ItemStack item = inv.getItem(0);
+		Inventory inv = e.getInventory();
+		
+		if (!(inv instanceof AnvilInventory) || e.getRawSlot() != 2)
+		{
+			return;
+		}
+		
+		ItemStack item = inv.getItem(2);
 		
 		if (item == null || !item.hasItemMeta() 
 				|| UtilMethods.getMooshroomData(item.getItemMeta()).isEmpty()
@@ -23,7 +32,12 @@ public class AnvilRenameListener implements Listener{
 		{
 			return;
 		}
-				
-		inv.setRepairCost(0);
+			
+		HumanEntity ent = e.getWhoClicked();
+		
+		if (ent instanceof Player)
+		{
+			((Player) ent).giveExpLevels(1);
+		}
 	}
 }
