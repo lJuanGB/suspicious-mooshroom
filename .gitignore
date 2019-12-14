@@ -1,5 +1,5 @@
 bin
-.classpath
-.project
-.settings/
+suspicious-mooshroom/.classpath
+suspicious-mooshroom/.project
+suspicious-mooshroom/.settings/
 target/
