@@ -3,10 +3,11 @@ package com.gmail.ljuangbminecraft.suspiciousmooshroom.commands;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 
 import com.gmail.ljuangbminecraft.suspiciousmooshroom.Config;
 import com.gmail.ljuangbminecraft.suspiciousmooshroom.MooshroomItems;
+
+import net.md_5.bungee.api.ChatColor;
 
 /**
  * Command to give players in creative the plugins items.
@@ -18,8 +19,6 @@ public class MooshroomConfigCommand implements CommandExecutor{
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String cmdName, String[] args) {
 		
-		if (!(sender instanceof Player)) return false;
-
 		if (!cmd.getName().equals("mooshroomconfig")) return true;
 				
 		if (!sender.isOp())
@@ -29,6 +28,7 @@ public class MooshroomConfigCommand implements CommandExecutor{
 		
 		Config.reload();
 		MooshroomItems.registerItems();
+		sender.sendMessage(ChatColor.AQUA + "Config reloaded succesfully");
 		return true;
 	}
 }

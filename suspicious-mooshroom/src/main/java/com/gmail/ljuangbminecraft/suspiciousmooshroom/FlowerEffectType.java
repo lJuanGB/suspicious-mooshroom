@@ -123,4 +123,13 @@ public class FlowerEffectType {
 	{
 		map = null;
 	}
+	
+	/**
+	 * Resets internal static map, so that we can re-register effects.
+	 * DO NOT CALL UNLESS YOU KNOW WHAT YOU ARE DOING
+	 */
+	public static void empty()
+	{
+		map = new HashMap<>();
+	}
 }

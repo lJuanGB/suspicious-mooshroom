@@ -21,7 +21,7 @@ import org.bukkit.inventory.meta.PotionMeta;
  */
 public class MooshroomItems {
 
-	private static Map<String, ItemStack> items;
+	private static Map<String, ItemStack> items = new HashMap<>();
 	
 	public static Optional<ItemStack> get(String id)
 	{

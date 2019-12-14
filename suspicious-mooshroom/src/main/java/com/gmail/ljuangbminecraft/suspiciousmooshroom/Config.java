@@ -76,6 +76,7 @@ public class Config {
 	
 	public static void reload()
 	{
+		SuspiciousMooshroom.getInstance().reloadConfig();
 		FileConfiguration file = SuspiciousMooshroom.getInstance().getConfig();
 		
 		for (Entry<?> entry : entries)
@@ -90,6 +91,8 @@ public class Config {
 			return;
 		}
 			
+		FlowerEffectType.empty();
+		
 		ConfigurationSection effects = file.getConfigurationSection("effects");
 		for (String key : effects.getKeys(false))
 		{
