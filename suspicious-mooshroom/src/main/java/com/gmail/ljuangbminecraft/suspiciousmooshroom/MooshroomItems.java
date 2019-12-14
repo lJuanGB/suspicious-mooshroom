@@ -74,7 +74,7 @@ public class MooshroomItems {
 		ItemMeta meta = item.getItemMeta();
 		meta.setDisplayName(ChatColor.AQUA + name);
 		meta.setLore(UtilMethods.wrapLore( lore ));
-		UtilMethods.setItemId(meta, id);
+		UtilMethods.setItemID(meta, id);
 		
 		item.setItemMeta(meta);
 		items.put(id, item);
@@ -101,7 +101,7 @@ public class MooshroomItems {
 		meta.setLore(UtilMethods.wrapLore( Config.lang_effect_potion_lore.get() ));
 		meta.setColor( type.getPotionType().getColor() );
 		meta.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
-		UtilMethods.setItemId(meta, id);
+		UtilMethods.setItemID(meta, id);
 		
 		pot.setItemMeta(meta);
 		items.put(id, pot);

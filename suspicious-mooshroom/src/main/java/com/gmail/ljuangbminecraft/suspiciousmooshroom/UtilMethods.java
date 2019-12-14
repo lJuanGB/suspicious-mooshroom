@@ -26,7 +26,12 @@ public class UtilMethods {
 	public static NamespacedKey keyCool = new NamespacedKey(SuspiciousMooshroom.getInstance(), "milkCooldown");
 	public static NamespacedKey keyItem = new NamespacedKey(SuspiciousMooshroom.getInstance(), "item");
 
-	
+	/**
+	 * Extracts MooshroomData stored within a PersistentDataHolder (entity, item...)
+	 * 
+	 * @param holder
+	 * @return
+	 */
 	public static MooshroomData getMooshroomData(PersistentDataHolder holder)
 	{
 		PersistentDataContainer cont = holder.getPersistentDataContainer();
@@ -39,11 +44,22 @@ public class UtilMethods {
 		return new MooshroomData(cont.get(keyData, PersistentDataType.STRING));
 	}
 	
+	/**
+	 * Stores MooshroomData so that it may be later retrieved by UtilMethods.getMooshroomData
+	 * @param holder
+	 * @param data
+	 */
 	public static void setMooshroomData(PersistentDataHolder holder, MooshroomData data)
 	{
 		holder.getPersistentDataContainer().set(keyData, PersistentDataType.STRING, data.toString());
 	}
 	
+	/**
+	 * If the item is a custom SuspiciousMooshrom item, returns its id
+	 * 
+	 * @param holder 
+	 * @return empty if item is not a custom SuspiciousMooshrom item
+	 */
 	public static Optional<String> getItemID(ItemMeta holder)
 	{
 		if (holder == null)
@@ -61,11 +77,22 @@ public class UtilMethods {
 		return Optional.of(cont.get(keyItem, PersistentDataType.STRING));
 	}
 	
-	public static void setItemId(ItemMeta holder, String id)
+	/**
+	 * Sets an identifier in the item meta of an item so that it may be
+	 * extracted with UtilMethods.getItemID
+	 * 
+	 * @param holder
+	 * @param id
+	 */
+	public static void setItemID(ItemMeta holder, String id)
 	{
 		holder.getPersistentDataContainer().set(keyItem, PersistentDataType.STRING, id);
 	}
 	
+	/**
+	 * @param ent
+	 * @return true if the entity is in a cooldown defined by UtilMethods.setCooldown
+	 */
 	public static boolean isInCooldown(Entity ent)
 	{
 		PersistentDataContainer cont = ent.getPersistentDataContainer();
@@ -78,12 +105,28 @@ public class UtilMethods {
 		return System.currentTimeMillis() < cont.get(keyCool, PersistentDataType.LONG);
 	}
 	
+	/**
+	 * Sets an entity into cooldown for a set amount of time, which can be checked with
+	 * UtilMethods.isInCooldown
+	 * 
+	 * @param ent
+	 * @param ticks The time to be in cooldown in minecraft ticks (assummin 20 millis = 1 tick,
+	 * which may not be true for laggy servers)
+	 */
 	public static void setCooldown(Entity ent, int ticks)
 	{
 		long time = (long) (System.currentTimeMillis() + ((double) ticks)/20.0*1000.0);
 		ent.getPersistentDataContainer().set(keyCool, PersistentDataType.LONG, time);
 	}
 	
+	/**
+	 * Returns a random value out of weighted collection.
+	 * 
+	 * @param possibilities Is a map with the keys corresponding to possible outcomes and the values
+	 * corresponding to the weight the key should have in the random draw
+	 * @param seed A seed for the RNG. null if random seed.
+	 * @return
+	 */
 	public static <T> T drawRandom(Map<T, ? extends Number> possibilities, Long seed)
 	{
 		Validate.notNull(possibilities);
@@ -121,6 +164,14 @@ public class UtilMethods {
 		return null;
 	}
 	
+	/**
+	 * Returns a random FlowerEffectType.
+	 * 
+	 * @param treasure if false then the outcome will be drawn from the non-treasure effects.
+	 * If true then it will be drawn exclusively from the tresure effects.
+	 * @param seed A seed for the RNG. null if random seed.
+	 * @return
+	 */
 	public static FlowerEffectType getRandomEffect(boolean treasure, Long seed)
 	{
 		Map<FlowerEffectType, Double> chances = new HashMap<>();
@@ -138,6 +189,11 @@ public class UtilMethods {
 		return UtilMethods.drawRandom(chances, seed);
 	}
 
+	/**
+	 * A better parse of PotionEffectType that includes minecraft potion ids.
+	 * @param s
+	 * @return empty optional if the spring doesn't correspond to any effect
+	 */
 	public static Optional<PotionEffectType> getPotionEffectType(String s)
 	{
 		PotionEffectType effect = PotionEffectType.getByName(s.toUpperCase());
@@ -163,6 +219,12 @@ public class UtilMethods {
 		}
 	}
 
+	/**
+	 * Wraps a string into 40 character length text. Automatically makes
+	 * it a neutral gray color. Respects color specificed with the character '&'
+	 * @param string
+	 * @return
+	 */
 	public static List<String> wrapLore(String string)
 	{
 		if (string == null || string.isEmpty())
