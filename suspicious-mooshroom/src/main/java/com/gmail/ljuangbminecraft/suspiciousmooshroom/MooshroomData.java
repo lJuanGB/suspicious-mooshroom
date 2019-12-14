@@ -211,7 +211,6 @@ public class MooshroomData {
 	 */
 	public void downgradeRandom()
 	{
-		System.out.println(toString());
 		List<FlowerEffect> all = getEffects();
 		Collections.shuffle(all);
 		FlowerEffect random = all.get(0);
@@ -221,7 +220,6 @@ public class MooshroomData {
 		int intensity = random.getIntensityLevel();
 		
 		removeEffect(random.getType()); // Remove all together, may re-add with weaker levels
-		System.out.println(toString());
 
 		if (duration == 1 && intensity > 1)
 		{
@@ -242,7 +240,6 @@ public class MooshroomData {
 				addEffect( new FlowerEffect(type, duration -1, intensity) );
 			}
 		}
-		System.out.println(toString());
 
 	}
 
