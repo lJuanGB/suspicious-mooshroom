@@ -148,6 +148,19 @@ public class CowInteractListener implements Listener{
 			cow.getWorld().spawnParticle(Particle.SPELL_WITCH, cow.getLocation().add(0, 0.5, 0), 20, 0.5,0.5,0.5);
 			cow.getWorld().playSound(cow.getLocation(), Sound.ENTITY_PHANTOM_HURT, 0.25f, 0.75f);
 			break;
+			
+		case "floral_forage":
+			
+			for (FlowerEffect eff : data.getEffects())
+			{
+				data.setFeedLevel(eff.getType(), eff.getEffectPoints());
+			}
+			UtilMethods.setMooshroomData(cow, data);
+			
+			item.setAmount( item.getAmount() - 1);
+			cow.getWorld().spawnParticle(Particle.VILLAGER_HAPPY, cow.getLocation().add(0, 0.5, 0), 20, 0.5,0.5,0.5);
+			cow.getWorld().playSound(cow.getLocation(), Sound.ENTITY_MOOSHROOM_EAT, 0.25f, 1f);
+			break;
 		}
 		
 		if (id.startsWith("potion_"))

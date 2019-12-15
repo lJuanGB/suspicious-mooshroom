@@ -50,6 +50,8 @@ public class Config {
 	public static Entry<String> lang_fungi_powder_lore = new Entry<>("language.fungi_powder_lore", Type.STRING, "");
 	public static Entry<String> lang_cannibal_fungi_name = new Entry<>("language.cannibal_fungi_name", Type.STRING, "");
 	public static Entry<String> lang_cannibal_fungi_lore = new Entry<>("language.cannibal_fungi_lore", Type.STRING, "");
+	public static Entry<String> lang_floral_forage_name = new Entry<>("language.floral_forage_name", Type.STRING, "");
+	public static Entry<String> lang_floral_forage_lore = new Entry<>("language.floral_forage_lore", Type.STRING, "");
 
 	public static void load()
 	{

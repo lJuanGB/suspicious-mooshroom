@@ -53,7 +53,8 @@ public class MooshroomItems {
 		items = new HashMap<>();
 		registerSimpleItem("fungi_powder", Material.SUGAR, Config.lang_fungi_powder_name.get(), Config.lang_fungi_powder_lore.get());
 		registerSimpleItem("cannibal_fungi", Material.FERMENTED_SPIDER_EYE, Config.lang_cannibal_fungi_name.get(), Config.lang_cannibal_fungi_lore.get());
-	
+		registerSimpleItem("floral_forage", Material.ROSE_BUSH, Config.lang_floral_forage_name.get(), Config.lang_floral_forage_lore.get());
+
 		for (FlowerEffectType effect : FlowerEffectType.values())
 		{
 			registerEffectPotion(effect);

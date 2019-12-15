@@ -26,6 +26,8 @@ language:
   fungi_powder_lore: "Spread on a mooshroom to grow an identical version of it"
   cannibal_fungi_name: "Cannibal Fungi"
   cannibal_fungi_lore: "Infect a mooshroom to make its effects loose power"
+  floral_forage_name: "Floral Forage"
+  floral_forage_lore: "Give this to a mooshroom to completely feed it"
   
 effects:
   saturation:
