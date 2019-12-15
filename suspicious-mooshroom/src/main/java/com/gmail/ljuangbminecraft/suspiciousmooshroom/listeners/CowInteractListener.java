@@ -35,15 +35,11 @@ public class CowInteractListener implements Listener{
 	{
 		if (e.getRightClicked().getType().equals(EntityType.MUSHROOM_COW))
 		{
-			if (UtilMethods.getMooshroomData(e.getRightClicked()).isEmpty())
-			{
-				return;
-			}
-			
 			PlayerInventory inv = e.getPlayer().getInventory();
 			ItemStack item = e.getHand().equals(EquipmentSlot.HAND) ? inv.getItemInMainHand() : inv.getItemInOffHand();
 			
-			if (item.getType().equals(Material.BOWL))
+			if (item.getType().equals(Material.BOWL) 
+					&& !UtilMethods.getMooshroomData(e.getRightClicked()).isEmpty())
 			{
 				handleMilkingBowl(item, e);
 				e.setCancelled(true);
@@ -57,7 +53,8 @@ public class CowInteractListener implements Listener{
 			}
 			else
 			{
-				e.setCancelled( handleFeed(item, e) );
+				boolean cancel = handleFeed(item, e);
+				e.setCancelled( cancel );
 			}
 			
 			if (e.getPlayer().getGameMode().equals(GameMode.CREATIVE))
@@ -235,6 +232,7 @@ public class CowInteractListener implements Listener{
 				break;
 			}
 		}
+		
 		if (!isFeedingItem)
 		{
 			switch (item.getType()) // If not feeding item but flower anyway, return true (cancel event to avoid eating)
