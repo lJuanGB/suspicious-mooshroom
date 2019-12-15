@@ -51,6 +51,11 @@ public class UtilMethods {
 	 */
 	public static void setMooshroomData(PersistentDataHolder holder, MooshroomData data)
 	{
+		if (data.isEmpty())
+		{
+			holder.getPersistentDataContainer().remove(keyData);
+		}
+		
 		holder.getPersistentDataContainer().set(keyData, PersistentDataType.STRING, data.toString());
 	}
 	
