@@ -97,7 +97,7 @@ effects:
   regeneration:
     feedingItem: oxeye_daisy
     potionType: regeneration
-    baseDuration: 450
+    baseDuration: 400
     weight: 0.75
     treasure: false
     lang_potion: "Daisy Fungous Solution"  
@@ -113,7 +113,7 @@ effects:
   poison:
     feedingItem: lily_of_the_valley
     potionType: poison
-    baseDuration: 450
+    baseDuration: 400
     weight: 0.75
     treasure: false
     lang_potion: "Fungous Solution of the Valley"  
@@ -129,7 +129,7 @@ effects:
   mining_fatigue:
     feedingItem: sweet_berries
     potionType: mining_fatigue
-    baseDuration: 450
+    baseDuration: 400
     weight: 1
     treasure: true
     lang_potion: "Sweet Fungous Solution"  
@@ -137,7 +137,7 @@ effects:
   nausea:
     feedingItem: pufferfish
     potionType: nausea
-    baseDuration: 450
+    baseDuration: 600
     weight: 0.5
     treasure: true
     lang_potion: "Disgusting Fungous Solution"  
@@ -145,7 +145,7 @@ effects:
   hunger:
     feedingItem: rotten_flesh
     potionType: hunger
-    baseDuration: 450
+    baseDuration: 900
     weight: 1
     treasure: true
     lang_potion: "Rotten Fungous Solution"  
@@ -169,7 +169,7 @@ effects:
   levitation:
     feedingItem: chorus_fruit
     potionType: levitation
-    baseDuration: 40
+    baseDuration: 100
     weight: 0.1
     treasure: true
     lang_potion: "Floating Fungous Solution"  
